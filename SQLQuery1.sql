@@ -1,0 +1,34 @@
+CREATE DATABASE Biblioteca
+GO
+
+USE Biblioteca
+GO
+
+CREATE TABLE Autor (
+    IdAutor UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    Nome VARCHAR(100) NOT NULL
+);
+
+SELECT * FROM Autor;
+
+CREATE TABLE Categoria (
+    IdCategoria UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    Nome VARCHAR(100) NOT NULL
+);
+
+SELECT * FROM Categoria;
+
+CREATE TABLE Livro (
+    IdLivro UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    Titulo VARCHAR(150) NOT NULL,
+    AnoPublicacao INT,
+    Quantidade INT,
+    IdAutor UNIQUEIDENTIFIER,
+    IdCategoria UNIQUEIDENTIFIER,
+    ImagemCapa VARCHAR(255),
+
+    FOREIGN KEY (IdAutor) REFERENCES Autor(IdAutor),
+    FOREIGN KEY (IdCategoria) REFERENCES Categoria(IdCategoria)
+);
+
+SELECT * FROM Livro;

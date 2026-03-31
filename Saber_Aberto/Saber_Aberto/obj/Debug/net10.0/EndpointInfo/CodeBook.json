@@ -1,0 +1,582 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "CodeBook",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Autor": {
+      "get": {
+        "tags": [
+          "Autor"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Autor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutorCreateDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutorCreateDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutorCreateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Autor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Autor"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Autor"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Autor"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Autor/{id}": {
+      "get": {
+        "tags": [
+          "Autor"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Autor"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Categoria": {
+      "get": {
+        "tags": [
+          "Categoria"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Categoria"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaCreateDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaCreateDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaCreateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Categoria/{id}": {
+      "get": {
+        "tags": [
+          "Categoria"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Categoria"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Categorium"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Categorium"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Categorium"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Categoria"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Livro": {
+      "get": {
+        "tags": [
+          "Livro"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Livro"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "IdLivro": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Imagem": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Titulo": {
+                    "type": "string"
+                  },
+                  "AnoPublicacao": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Quantidade": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "IdAutor": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "IdCategoria": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "NomeAutor": {
+                    "type": "string"
+                  },
+                  "NomeCategoria": {
+                    "type": "string"
+                  },
+                  "ImagemUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "IdLivro": {
+                  "style": "form"
+                },
+                "Imagem": {
+                  "style": "form"
+                },
+                "Titulo": {
+                  "style": "form"
+                },
+                "AnoPublicacao": {
+                  "style": "form"
+                },
+                "Quantidade": {
+                  "style": "form"
+                },
+                "IdAutor": {
+                  "style": "form"
+                },
+                "IdCategoria": {
+                  "style": "form"
+                },
+                "NomeAutor": {
+                  "style": "form"
+                },
+                "NomeCategoria": {
+                  "style": "form"
+                },
+                "ImagemUrl": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Livro/{id}": {
+      "get": {
+        "tags": [
+          "Livro"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Livro"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "IdLivro": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Imagem": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Titulo": {
+                    "type": "string"
+                  },
+                  "AnoPublicacao": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Quantidade": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "IdAutor": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "IdCategoria": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "NomeAutor": {
+                    "type": "string"
+                  },
+                  "NomeCategoria": {
+                    "type": "string"
+                  },
+                  "ImagemUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "IdLivro": {
+                  "style": "form"
+                },
+                "Imagem": {
+                  "style": "form"
+                },
+                "Titulo": {
+                  "style": "form"
+                },
+                "AnoPublicacao": {
+                  "style": "form"
+                },
+                "Quantidade": {
+                  "style": "form"
+                },
+                "IdAutor": {
+                  "style": "form"
+                },
+                "IdCategoria": {
+                  "style": "form"
+                },
+                "NomeAutor": {
+                  "style": "form"
+                },
+                "NomeCategoria": {
+                  "style": "form"
+                },
+                "ImagemUrl": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Livro"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Livro/titulo/{titulo}": {
+      "get": {
+        "tags": [
+          "Livro"
+        ],
+        "parameters": [
+          {
+            "name": "titulo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Autor": {
+        "type": "object",
+        "properties": {
+          "idAutor": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AutorCreateDTO": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CategoriaCreateDTO": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Categorium": {
+        "type": "object",
+        "properties": {
+          "idCategoria": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Autor"
+    },
+    {
+      "name": "Categoria"
+    },
+    {
+      "name": "Livro"
+    }
+  ]
+}
